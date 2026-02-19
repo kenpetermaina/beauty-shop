@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Essy's Beauty and Cosmetics</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: #fff7fb;
+        color: #333;
+      }
+      header {
+        background: #c2185b;
+        color: white;
+        padding: 20px 40px;
+        position: sticky;
+        top: 0;
+      }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      nav a {
+        color: white;
+        margin-left: 20px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(to right, #f8bbd0, #fce4ec);
+      }
+      .hero h1 {
+        font-size: 42px;
+        color: #880e4f;
+        margin-bottom: 10px;
+      }
+
+      section {
+        padding: 50px 40px;
+      }
+      h2 {
+        color: #ad1457;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+      }
+      .card {
+        background: white;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+
+      .price {
+        color: #c2185b;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+      .btn {
+        background: #ad1457;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .order-box {
+        background: #fde4ef;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 20px;
+        text-align: center;
+      }
+      .order-box input {
+        padding: 10px;
+        width: 250px;
+        margin: 10px 0;
+      }
+
+      footer {
+        background: #c2185b;
+        color: white;
+        text-align: center;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <h2>Essy's Beauty and Cosmetics</h2>
+        <div>
+          <a href="#services">Services</a>
+          <a href="#products">Products</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Welcome to Essy's Beauty and Cosmetics</h1>
+      <p>Enhancing Beauty, Confidence, and Style in Nakuru.</p>
+      <p><strong>Website:</strong> www.essybeautyandcosmetics.co.ke</p>
+    </section>
+
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="s20.jpg.jpeg" />
+          <h3>Facials</h3>
+        </div>
+        <div class="card">
+          <img src="S9.jpg.jpeg" />
+          <h3>Hair Styling</h3>
+        </div>
+        <div class="card">
+          <img src="S7.jpg.jpeg" />
+          <h3>Professional Makeup</h3>
+        </div>
+        <div class="card">
+          <img src="S24.jpg.jpeg" />
+          <h3>Manicure & Pedicure</h3>
+        </div>
+        <div class="card"><h3>Beauty Consultation</h3></div>
+        <div class="card"><h3>Hair Treatment</h3></div>
+        <div class="card"><h3>Bridal Packages</h3></div>
+        <div class="card"><h3>Eyebrow Shaping</h3></div>
+        <div class="card"><h3>Skin Care Therapy</h3></div>
+        <div class="card"><h3>Cosmetic Sales</h3></div>
+      </div>
+    </section>
+
+    <section id="products">
+      <h2>Products & Prices</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="S5.jpg.jpeg" />
+          <p class="price">Sh.1500</p>
+          <button class="btn" onclick="selectItem('Beauty Product', 1500)">
+            Order & Pay
+          </button>
+        </div>
+
+        <div class="card">
+          <img src="S2.PNG" />
+          <p class="price">Sh.7500</p>
+          <button class="btn" onclick="selectItem('Premium Kit', 7500)">
+            Order & Pay
+          </button>
+        </div>
+
+        <div class="card">
+          <img src="S1.PNG" />
+          <p class="price">Sh.1000</p>
+          <button class="btn" onclick="selectItem('Cosmetic Item', 1000)">
+            Order & Pay
+          </button>
+        </div>
+
+        <div class="card">
+          <img src="S2.PNG" />
+          <p class="price">Sh.900</p>
+          <button class="btn" onclick="selectItem('Beauty Accessory', 900)">
+            Order & Pay
+          </button>
+        </div>
+      </div>
+
+      <div class="order-box" id="orderSection" style="display: none">
+        <h3 id="selectedProduct"></h3>
+        <p>Enter your phone number to receive payment prompt:</p>
+        <input type="text" id="customerPhone" placeholder="07XXXXXXXX" />
+        <br />
+        <button class="btn" onclick="completeOrder()">Submit Payment</button>
+        <p id="confirmation"></p>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About Our Shop</h2>
+      <p>
+        Essy’s Beauty and Cosmetics is a modern beauty destination in Nakuru
+        dedicated to enhancing natural beauty through professional care, quality
+        products, and personalized attention. We provide a relaxing environment
+        where clients enjoy expert services, innovative beauty solutions, and
+        outstanding customer experience designed to inspire confidence,
+        elegance, and long-lasting satisfaction every single visit.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p><strong>Phone:</strong> 0789345679</p>
+      <p><strong>Email:</strong> essybeauty234@gmail.com</p>
+      <p><strong>Location:</strong> Nakuru, Kenya</p>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Essy's Beauty and Cosmetics</p>
+    </footer>
+
+    <script>
+      let currentItem = "";
+      let currentPrice = "";
+
+      function selectItem(item, price) {
+        currentItem = item;
+        currentPrice = price;
+        document.getElementById("orderSection").style.display = "block";
+        document.getElementById("selectedProduct").innerHTML =
+          "Ordering: " + item + " — Sh." + price;
+      }
+
+      function completeOrder() {
+        let phone = document.getElementById("customerPhone").value;
+        document.getElementById("confirmation").innerHTML =
+          "Payment prompt sent to " +
+          phone +
+          ". Please complete payment on your phone. Your order will be ready for pickup at our Nakuru shop.";
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
